@@ -39,7 +39,7 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
     {
         node->parent = current_node;
         node->h_value = CalculateHValue(node);
-        node->g_value = current_node->g_value + node->distance(*current_node);
+        node->g_value = current_node->g_value + current_node->distance(*node);
         node->visited = true;
         open_list.push_back(node);
     }
@@ -108,16 +108,16 @@ void RoutePlanner::AStarSearch() {
 
     // TODO: Implement your solution here.
     open_list.push_back(start_node);
+    start_node->visited = true;
 
     while(open_list.size() > 0){
-        current_node = NextNode();
-        AddNeighbors(current_node);
-
         if (current_node == end_node){
             m_Model.path = ConstructFinalPath(current_node);
             return;
         }
-    }
 
-    // TODO: fix segmentation error
+        current_node = NextNode();
+        AddNeighbors(current_node);
+
+    }
 }
