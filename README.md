@@ -4,6 +4,9 @@ This repo contains the starter code for the Route Planning project.
 
 <img src="map.png" width="600" height="450" />
 
+## Environment setup
+[check out this Gist](https://gist.github.com/0100Light/0d3143a02ba6ced1634885d0f3a20009)
+
 ## Cloning
 
 When cloning this project, be sure to use the `--recurse-submodules` flag. Using HTTPS:
